@@ -29,5 +29,6 @@ public class FlightManager {
 
     public void bookPassengerToFlight(Passenger passenger) {
         this.getFlight().bookPassenger(passenger);
+        this.getFlight().getPassengers().get(0).setFlight(this.getFlight());
     }
 }

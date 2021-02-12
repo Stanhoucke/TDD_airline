@@ -79,11 +79,12 @@ public class FlightManagerTest {
         assertEquals(10, flightManager.getFlight().countPassengers());
     }
 
-//    @Test
-//    public void passengerAssignedFlightWhenBooked(){
-//        flight1.bookPassenger(passenger1);
-//        assertEquals(flight1, flight1.getPassengers().get(0).getFlight());
-//    }
+    @Test
+    public void passengerAssignedFlightWhenBooked(){
+        flightManager.bookPassengerToFlight(passenger1);
+        Flight passengerFlight = flightManager.getFlight().getPassengers().get(0).getFlight();
+        assertEquals(flight1, passengerFlight);
+    }
 
 
 }
