@@ -77,6 +77,15 @@ public class Flight {
         return this.passengers.size();
     }
 
+    public void addPassenger(Passenger passenger) {
+        this.passengers.add(passenger);
+    }
 
+    public void removePassenger(Passenger passenger) {
+        this.passengers.remove(passenger);
+    }
 
+    public void removeAllPassengers(){
+        this.passengers.clear();
+    }
 }

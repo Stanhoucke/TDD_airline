@@ -20,6 +20,8 @@ public class FlightTest {
     Plane plane1;
     CabinCrewMember cabinCrewMember1;
     CabinCrewMember cabinCrewMember2;
+    Passenger passenger1;
+    Passenger passenger2;
 
     @Before
     public void before(){
@@ -27,6 +29,8 @@ public class FlightTest {
         plane1 = new Plane(PlaneType.A380);
         cabinCrewMember1 = new CabinCrewMember("Lorraine Sullenberger", RankType.PURSER);
         cabinCrewMember2 = new CabinCrewMember("Tess Sosa", RankType.FLIGHT_ATTENDANT);
+        passenger1 = new Passenger("Neville Flynn", 2);
+        passenger2 = new Passenger("Big Leroy", 1);
 
         flight1 = new Flight(pilot1, plane1, "JAA6902", Airport.EDI, Airport.GVA, "2021-02-15 08:00");
     }
@@ -95,5 +99,27 @@ public class FlightTest {
         flight1.addCrew(cabinCrewMember2);
         flight1.removeCrew(cabinCrewMember2);
         assertEquals(cabinCrewMember1, flight1.getCrew().get(0));
+    }
+
+    @Test
+    public void canAddPassenger(){
+        flight1.addPassenger(passenger1);
+        assertEquals(1, flight1.countPassengers());
+    }
+
+    @Test
+    public void canRemovePassenger(){
+        flight1.addPassenger(passenger1);
+        flight1.addPassenger(passenger2);
+        flight1.removePassenger(passenger1);
+        assertEquals(1, flight1.countPassengers());
+    }
+
+    @Test
+    public void canRemoveAllPassengers(){
+        flight1.addPassenger(passenger1);
+        flight1.addPassenger(passenger2);
+        flight1.removeAllPassengers();
+        assertEquals(0, flight1.countPassengers());
     }
 }
