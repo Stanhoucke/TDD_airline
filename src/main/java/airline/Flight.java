@@ -60,7 +60,7 @@ public class Flight {
         return this.departureTime;
     }
 
-    // ArrayList methods
+    // Crew methods
     public int countCrew() {
         return this.crew.size();
     }
@@ -73,6 +73,7 @@ public class Flight {
         this.crew.remove(crewMember);
     }
 
+    // Passenger methods
     public int countPassengers() {
         return this.passengers.size();
     }
@@ -105,5 +106,6 @@ public class Flight {
             this.addPassenger(passenger);
         }
     }
+
 
 }
