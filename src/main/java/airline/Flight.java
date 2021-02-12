@@ -99,6 +99,16 @@ public class Flight {
         return bagCount;
     }
 
+    public Passenger findPassenger(Passenger SearchedPassenger) {
+        Passenger foundPassenger = null;
+        for (Passenger passenger : this.passengers) {
+            if (passenger == SearchedPassenger){
+                foundPassenger = passenger;
+            }
+        }
+        return foundPassenger;
+    }
+
     // Seat availability
     public boolean hasAvailableSeat() {
         int planeCapacity = this.getPlane().getPassengerCapacity();
