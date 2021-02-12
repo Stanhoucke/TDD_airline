@@ -89,9 +89,14 @@ public class Flight {
         this.passengers.clear();
     }
 
-    // Seats available
     public boolean hasAvailableSeat() {
         int planeCapacity = this.getPlane().getPassengerCapacity();
         return this.countPassengers() < planeCapacity;
+    }
+
+    public void bookPassenger(Passenger passenger) {
+        if (hasAvailableSeat()){
+            this.addPassenger(passenger);
+        }
     }
 }

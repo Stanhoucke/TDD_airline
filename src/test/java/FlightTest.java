@@ -135,4 +135,18 @@ public class FlightTest {
         }
         assertFalse(flight1.hasAvailableSeat());
     }
+    
+    @Test
+    public void canBookPassenger(){
+        flight1.bookPassenger(passenger1);
+        assertEquals(1, flight1.countPassengers());
+    }
+
+    @Test
+    public void doesNotBookPassengerOnFullFlight(){
+        for (int i = 0; i < 12; i++){
+            flight1.bookPassenger(passenger1);
+        }
+        assertEquals(10, flight1.countPassengers());
+    }
 }
