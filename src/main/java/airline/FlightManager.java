@@ -19,7 +19,7 @@ public class FlightManager {
     }
 
     public double getTotalPassengerBaggageWeight() {
-        return this.getPassengerBaggageWeightAllowance() * this.flight.countPassengers();
+        return this.getPassengerBaggageWeightAllowance() * this.flight.countPassengerBags();
     }
 
     public double getRemainingBaggageWeight() {
