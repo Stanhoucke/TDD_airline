@@ -25,7 +25,7 @@ public class CabinCrewMemberTest {
 
     @Test
     public void canCabinAnnouncement(){
-        assertEquals("Exits are located here, here, and here", cabinCrewMember1.cabinAnnouncement());
+        assertEquals("Exits are located here, here, and here.", cabinCrewMember1.cabinAnnouncement());
     }
 
 }
