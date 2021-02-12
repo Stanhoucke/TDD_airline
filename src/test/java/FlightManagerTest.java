@@ -81,8 +81,9 @@ public class FlightManagerTest {
 
     @Test
     public void passengerAssignedFlightWhenBooked(){
+        flightManager.bookPassengerToFlight(passenger2);
         flightManager.bookPassengerToFlight(passenger1);
-        Flight passengerFlight = flightManager.getFlight().getPassengers().get(0).getFlight();
+        Flight passengerFlight = flightManager.getFlight().findPassenger(passenger1).getFlight();
         assertEquals(flight1, passengerFlight);
     }
 
