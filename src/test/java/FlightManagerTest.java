@@ -48,21 +48,21 @@ public class FlightManagerTest {
         assertEquals(15.00, flightManager.getPassengerBaggageWeightAllowance(), 0.0);
     }
 
-//    @Test
-//    public void canGetTotalPassengerBaggageWeight(){
-//        flightManager.getFlight().bookPassenger(passenger1);
-//        flightManager.getFlight().bookPassenger(passenger2);
-//        flightManager.getFlight().bookPassenger(passenger2);
-//        assertEquals(30.00, flightManager.getTotalPassengerBaggageWeight(), 0.0);
-//    }
-//
-//    @Test
-//    public void canGetRemainingBaggageWeight(){
-//        flightManager.getFlight().bookPassenger(passenger1);
-//        flightManager.getFlight().bookPassenger(passenger2);
-//        flightManager.getFlight().bookPassenger(passenger2);
-//        assertEquals(120.00, flightManager.getRemainingBaggageWeight(), 0.0);
-//    }
+    @Test
+    public void canGetTotalPassengerBaggageWeight(){
+        flightManager.getFlight().bookPassenger(passenger1);
+        flightManager.getFlight().bookPassenger(passenger2);
+        flightManager.getFlight().bookPassenger(passenger2);
+        assertEquals(30.00, flightManager.getTotalPassengerBaggageWeight(), 0.0);
+    }
+
+    @Test
+    public void canGetRemainingBaggageWeight(){
+        flightManager.getFlight().bookPassenger(passenger1);
+        flightManager.getFlight().bookPassenger(passenger2);
+        flightManager.getFlight().bookPassenger(passenger2);
+        assertEquals(120.00, flightManager.getRemainingBaggageWeight(), 0.0);
+    }
 
 
 }

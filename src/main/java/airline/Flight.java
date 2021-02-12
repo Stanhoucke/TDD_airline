@@ -90,6 +90,14 @@ public class Flight {
         this.passengers.clear();
     }
 
+    public int countPassengerBags(){
+        int bagCount = 0;
+        for (Passenger passenger : this.passengers){
+            bagCount += passenger.getNumberOfBags();
+        }
+        return bagCount;
+    }
+
     // Seat availability
     public boolean hasAvailableSeat() {
         int planeCapacity = this.getPlane().getPassengerCapacity();

@@ -76,7 +76,7 @@ public class FlightTest {
         assertEquals("2021-02-15 08:00", flight1.getDepartureTime());
     }
 
-    // ArrayList tests
+    // Crew tests
     @Test
     public void canCountCrew(){
         assertEquals(0, flight1.countCrew());
@@ -101,6 +101,7 @@ public class FlightTest {
         assertEquals(cabinCrewMember1, flight1.getCrew().get(0));
     }
 
+    // Passenger tests
     @Test
     public void canAddPassenger(){
         flight1.addPassenger(passenger1);
@@ -124,6 +125,14 @@ public class FlightTest {
     }
 
     @Test
+    public void canCountPassengerBags(){
+        flight1.bookPassenger(passenger1);
+        flight1.bookPassenger(passenger2);
+        assertEquals(3, flight1.countPassengerBags());
+    }
+
+    // Seat availability tests
+    @Test
     public void canCheckSeatAvailability__ReturnsTrue(){
         assertTrue(flight1.hasAvailableSeat());
     }
@@ -145,6 +154,7 @@ public class FlightTest {
         assertEquals(8, flight1.countAvailableSeats());
     }
 
+    // Book passenger tests
     @Test
     public void canBookPassenger(){
         flight1.bookPassenger(passenger1);
