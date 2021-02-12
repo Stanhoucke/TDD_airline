@@ -11,7 +11,7 @@ import vehicle.PlaneType;
 
 import java.util.ArrayList;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.*;
 
 public class FlightTest {
 
@@ -121,5 +121,18 @@ public class FlightTest {
         flight1.addPassenger(passenger2);
         flight1.removeAllPassengers();
         assertEquals(0, flight1.countPassengers());
+    }
+
+    @Test
+    public void canCheckSeatAvailability__ReturnsTrue(){
+        assertTrue(flight1.hasAvailableSeat());
+    }
+
+    @Test
+    public void canCheckSeatAvailability__ReturnsFalse(){
+        for (int i = 0; i < 10; i++){
+            flight1.addPassenger(passenger1);
+        }
+        assertFalse(flight1.hasAvailableSeat());
     }
 }

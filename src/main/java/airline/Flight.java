@@ -88,4 +88,10 @@ public class Flight {
     public void removeAllPassengers(){
         this.passengers.clear();
     }
+
+    // Seats available
+    public boolean hasAvailableSeat() {
+        int planeCapacity = this.getPlane().getPassengerCapacity();
+        return this.countPassengers() < planeCapacity;
+    }
 }
