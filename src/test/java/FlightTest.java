@@ -67,4 +67,15 @@ public class FlightTest {
     public void hasDepartureTime(){
         assertEquals("2021-02-15 08:00", flight1.getDepartureTime());
     }
+    
+    // ArrayList tests
+    @Test
+    public void canCountCrew(){
+        assertEquals(0, flight1.countCrew());
+    }
+
+    @Test
+    public void canCountPassengers(){
+        assertEquals(0, flight1.countPassengers());
+    }
 }

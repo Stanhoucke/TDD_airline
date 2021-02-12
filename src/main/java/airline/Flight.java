@@ -59,4 +59,16 @@ public class Flight {
     public String getDepartureTime() {
         return this.departureTime;
     }
+
+    public int countCrew() {
+        return this.crew.size();
+    }
+
+    public int countPassengers() {
+        return this.passengers.size();
+    }
+
+    // ArrayList methods
+
+
 }
