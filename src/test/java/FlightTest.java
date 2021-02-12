@@ -18,11 +18,15 @@ public class FlightTest {
     Flight flight1;
     Pilot pilot1;
     Plane plane1;
+    CabinCrewMember cabinCrewMember1;
+    CabinCrewMember cabinCrewMember2;
 
     @Before
     public void before(){
         pilot1 = new Pilot("Sully", RankType.CAPTAIN, "JA-5678");
         plane1 = new Plane(PlaneType.A380);
+        cabinCrewMember1 = new CabinCrewMember("Lorraine Sullenberger", RankType.PURSER);
+        cabinCrewMember2 = new CabinCrewMember("Tess Sosa", RankType.FLIGHT_ATTENDANT);
 
         flight1 = new Flight(pilot1, plane1, "JAA6902", Airport.EDI, Airport.GVA, "2021-02-15 08:00");
     }
@@ -67,7 +71,7 @@ public class FlightTest {
     public void hasDepartureTime(){
         assertEquals("2021-02-15 08:00", flight1.getDepartureTime());
     }
-    
+
     // ArrayList tests
     @Test
     public void canCountCrew(){
@@ -77,5 +81,19 @@ public class FlightTest {
     @Test
     public void canCountPassengers(){
         assertEquals(0, flight1.countPassengers());
+    }
+
+    @Test
+    public void canAddCrewMember(){
+        flight1.addCrew(cabinCrewMember1);
+        assertEquals(1, flight1.countCrew());
+    }
+
+    @Test
+    public void canRemoveCrewMember(){
+        flight1.addCrew(cabinCrewMember1);
+        flight1.addCrew(cabinCrewMember2);
+        flight1.removeCrew(cabinCrewMember2);
+        assertEquals(cabinCrewMember1, flight1.getCrew().get(0));
     }
 }
