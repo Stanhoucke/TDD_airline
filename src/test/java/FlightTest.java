@@ -9,6 +9,7 @@ import staff.RankType;
 import vehicle.Plane;
 import vehicle.PlaneType;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 
 import static org.junit.Assert.*;
@@ -32,7 +33,7 @@ public class FlightTest {
         passenger1 = new Passenger("Neville Flynn", 2);
         passenger2 = new Passenger("Big Leroy", 1);
 
-        flight1 = new Flight(pilot1, plane1, "JAA6902", Airport.EDI, Airport.GVA, "2021-02-15 08:00");
+        flight1 = new Flight(pilot1, plane1, "JAA6902", Airport.EDI, Airport.GVA, LocalDateTime.of(2021, 2, 15, 8, 30));
     }
 
     // Attribute tests
@@ -73,7 +74,7 @@ public class FlightTest {
 
     @Test
     public void hasDepartureTime(){
-        assertEquals("2021-02-15 08:00", flight1.getDepartureTime());
+        assertEquals(LocalDateTime.of(2021, 2, 15, 8, 30), flight1.getDepartureTime());
     }
 
     // Crew tests

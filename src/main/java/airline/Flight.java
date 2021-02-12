@@ -4,6 +4,7 @@ import staff.CabinCrewMember;
 import staff.Pilot;
 import vehicle.Plane;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 
 public class Flight {
@@ -14,9 +15,9 @@ public class Flight {
     private String flightNumber;
     private Airport destination;
     private Airport departureAirport;
-    private String departureTime;
+    private LocalDateTime departureTime;
 
-    public Flight(Pilot pilot, Plane plane, String flightNumber, Airport destination, Airport departureAirport, String departureTime) {
+    public Flight(Pilot pilot, Plane plane, String flightNumber, Airport destination, Airport departureAirport, LocalDateTime departureTime) {
         this.pilot = pilot;
         this.crew = new ArrayList<CabinCrewMember>();
         this.passengers = new ArrayList<Passenger>();
@@ -56,7 +57,7 @@ public class Flight {
         return this.departureAirport;
     }
 
-    public String getDepartureTime() {
+    public LocalDateTime getDepartureTime() {
         return this.departureTime;
     }
 
