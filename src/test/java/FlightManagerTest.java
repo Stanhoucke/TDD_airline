@@ -65,5 +65,25 @@ public class FlightManagerTest {
         assertEquals(120.00, flightManager.getRemainingBaggageWeight(), 0.0);
     }
 
+    @Test
+    public void canBookPassengerToFlight(){
+        flightManager.bookPassengerToFlight(passenger1);
+        assertEquals(1, flightManager.getFlight().countPassengers());
+    }
+
+    @Test
+    public void doesNotBookPassengerOnFullFlight(){
+        for (int i = 0; i < 12; i++){
+            flightManager.bookPassengerToFlight(passenger1);
+        }
+        assertEquals(10, flightManager.getFlight().countPassengers());
+    }
+
+//    @Test
+//    public void passengerAssignedFlightWhenBooked(){
+//        flight1.bookPassenger(passenger1);
+//        assertEquals(flight1, flight1.getPassengers().get(0).getFlight());
+//    }
+
 
 }

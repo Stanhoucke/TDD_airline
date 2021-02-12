@@ -169,4 +169,10 @@ public class FlightTest {
         }
         assertEquals(10, flight1.countPassengers());
     }
+
+//    @Test
+//    public void passengerAssignedFlightWhenBooked(){
+//        flight1.bookPassenger(passenger1);
+//        assertEquals(flight1, flight1.getPassengers().get(0).getFlight());
+//    }
 }

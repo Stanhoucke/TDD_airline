@@ -26,4 +26,8 @@ public class FlightManager {
         double baggageWeightAllowance = this.flight.getPlane().getWeight() / 2;
         return baggageWeightAllowance - this.getTotalPassengerBaggageWeight();
     }
+
+    public void bookPassengerToFlight(Passenger passenger) {
+        this.getFlight().bookPassenger(passenger);
+    }
 }
