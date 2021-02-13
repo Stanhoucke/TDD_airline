@@ -1,5 +1,8 @@
 package airline;
 
+import java.util.ArrayList;
+import java.util.Collections;
+
 public class FlightManager {
     private Flight flight;
 
@@ -33,6 +36,13 @@ public class FlightManager {
     }
 
     public void assignPassengerSeatNumber(Passenger passenger) {
-        this.getFlight().findPassenger(passenger).setSeatNumber(7);
+        ArrayList<Integer> availableSeatNumbers = new ArrayList<Integer>();
+        for (int i = 0; i < 10; i++){
+            availableSeatNumbers.add(i);
+        }
+        Collections.shuffle(availableSeatNumbers);
+        int assignedSeatNumber = availableSeatNumbers.remove(0);
+
+        this.getFlight().findPassenger(passenger).setSeatNumber(assignedSeatNumber);
     }
 }

@@ -83,7 +83,7 @@ public class FlightManagerTest {
     public void canAssignPassengerSeatNumber(){
         flightManager.bookPassengerToFlight(passenger1);
         flightManager.assignPassengerSeatNumber(passenger1);
-        assertEquals(7, flightManager.getFlight().findPassenger(passenger1).getSeatNumber());
+        assertNotEquals(0, flightManager.getFlight().findPassenger(passenger1).getSeatNumber());
     }
 
     @Test
