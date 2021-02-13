@@ -11,8 +11,7 @@ import vehicle.PlaneType;
 
 import java.time.LocalDateTime;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNull;
+import static org.junit.Assert.*;
 
 public class PassengerTest {
 
@@ -49,5 +48,16 @@ public class PassengerTest {
     public void setFlight(){
         passenger1.setFlight(flight1);
         assertEquals(flight1, passenger1.getFlight());
+    }
+
+    @Test
+    public void passengerStartsWithNoSeat(){
+        assertEquals(0, passenger1.getSeatNumber());
+    }
+
+    @Test
+    public void setSeat(){
+        passenger1.setSeatNumber(2);
+        assertEquals(2, passenger1.getSeatNumber());
     }
 }
