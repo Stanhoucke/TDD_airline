@@ -17,26 +17,32 @@ import static org.junit.Assert.*;
 
 public class FlightManagerTest {
     Flight flight1;
+    Flight flight2;
     Pilot pilot1;
     Plane plane1;
+    Plane privateJet;
     CabinCrewMember cabinCrewMember1;
     CabinCrewMember cabinCrewMember2;
     Passenger passenger1;
     Passenger passenger2;
     FlightManager flightManager;
+    FlightManager privateFlightManager;
 
     @Before
     public void before(){
         pilot1 = new Pilot("Sully", RankType.CAPTAIN, "JA-5678");
         plane1 = new Plane(PlaneType.A380);
+        privateJet = new Plane(PlaneType.PRIVATE_JET);
         cabinCrewMember1 = new CabinCrewMember("Lorraine Sullenberger", RankType.PURSER);
         cabinCrewMember2 = new CabinCrewMember("Tess Sosa", RankType.FLIGHT_ATTENDANT);
         passenger1 = new Passenger("Neville Flynn", 0);
         passenger2 = new Passenger("Big Leroy", 1);
 
         flight1 = new Flight(pilot1, plane1, "JAA6902", Airport.EDI, Airport.GVA, LocalDateTime.of(2021, 2, 15, 8, 30));
+        flight2 = new Flight(pilot1, privateJet, "JAA6956", Airport.GVA, Airport.LAX, LocalDateTime.of(2021, 7, 15, 10, 0));
 
         flightManager = new FlightManager(flight1);
+        privateFlightManager = new FlightManager(flight2);
     }
 
     @Test
@@ -96,5 +102,18 @@ public class FlightManagerTest {
         assertNotEquals(0, flightManager.getFlight().findPassenger(passenger1).getSeatNumber());
     }
 
+    @Test
+    public void flightFullyBooks(){
+        privateFlightManager.bookPassengerToFlight(passenger1);
+        privateFlightManager.bookPassengerToFlight(passenger2);
+        Flight passengerFlight1 = privateFlightManager.getFlight().findPassenger(passenger1).getFlight();
+        Flight passengerFlight2 = privateFlightManager.getFlight().findPassenger(passenger2).getFlight();
+
+        assertEquals(flight2, passengerFlight1);
+        assertEquals(flight2, passengerFlight2);
+        assertEquals(2, privateFlightManager.getFlight().countPassengers());
+        assertNotEquals(0, privateFlightManager.getFlight().findPassenger(passenger1).getSeatNumber());
+        assertNotEquals(0, privateFlightManager.getFlight().findPassenger(passenger2).getSeatNumber());
+    }
 
 }
