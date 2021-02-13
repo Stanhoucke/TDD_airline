@@ -36,8 +36,10 @@ public class FlightManager {
     }
 
     public void assignPassengerSeatNumber(Passenger passenger) {
+        int planeCapacity = this.getFlight().getPlane().getPassengerCapacity();
+
         ArrayList<Integer> availableSeatNumbers = new ArrayList<Integer>();
-        for (int i = 0; i < 10; i++){
+        for (int i = 1; i <= planeCapacity; i++){
             availableSeatNumbers.add(i);
         }
         Collections.shuffle(availableSeatNumbers);
