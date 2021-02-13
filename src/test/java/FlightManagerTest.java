@@ -80,6 +80,13 @@ public class FlightManagerTest {
     }
 
     @Test
+    public void canAssignPassengerSeatNumber(){
+        flightManager.bookPassengerToFlight(passenger1);
+        flightManager.assignPassengerSeatNumber(passenger1);
+        assertEquals(7, flightManager.getFlight().findPassenger(passenger1).getSeatNumber());
+    }
+
+    @Test
     public void passengerAssignedFlightWhenBooked(){
         flightManager.bookPassengerToFlight(passenger2);
         flightManager.bookPassengerToFlight(passenger1);

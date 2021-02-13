@@ -31,4 +31,8 @@ public class FlightManager {
         this.getFlight().bookPassenger(passenger);
         this.getFlight().findPassenger(passenger).setFlight(this.getFlight());
     }
+
+    public void assignPassengerSeatNumber(Passenger passenger) {
+        this.getFlight().findPassenger(passenger).setSeatNumber(7);
+    }
 }
