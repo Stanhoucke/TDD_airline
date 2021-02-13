@@ -30,11 +30,6 @@ public class FlightManager {
         return baggageWeightAllowance - this.getTotalPassengerBaggageWeight();
     }
 
-    public void bookPassengerToFlight(Passenger passenger) {
-        this.getFlight().bookPassenger(passenger);
-        this.getFlight().findPassenger(passenger).setFlight(this.getFlight());
-    }
-
     public void assignPassengerSeatNumber(Passenger passenger) {
         int planeCapacity = this.getFlight().getPlane().getPassengerCapacity();
 
@@ -47,4 +42,11 @@ public class FlightManager {
 
         this.getFlight().findPassenger(passenger).setSeatNumber(assignedSeatNumber);
     }
+
+    public void bookPassengerToFlight(Passenger passenger) {
+        this.getFlight().bookPassenger(passenger);
+        this.getFlight().findPassenger(passenger).setFlight(this.getFlight());
+        this.assignPassengerSeatNumber(passenger);
+    }
+
 }
